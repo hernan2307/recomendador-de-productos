@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug API Recomendador",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/api.recomendador/dist/adapters/app.js",
+      "cwd": "${workspaceFolder}/api.recomendador",
+      "preLaunchTask": "build API",
+      "console": "integratedTerminal",
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/api.recomendador/dist/**/*.js"]
+    },
+    {
+      "name": "Debug API (sin compilar)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/api.recomendador/dist/adapters/app.js",
+      "cwd": "${workspaceFolder}/api.recomendador",
+      "console": "integratedTerminal",
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/api.recomendador/dist/**/*.js"]
+    }
+  ]
+}
