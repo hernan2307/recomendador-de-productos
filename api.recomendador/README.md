@@ -1,118 +1,123 @@
-# Personal Recommender API
+## API Recomendador Personal
 
-Node.js (TypeScript + Express) API with Clean Architecture for the Personal services recommender. MySQL database.
+API REST en **Node.js + TypeScript + Express** con enfoque de **Clean Architecture** para un recomendador de servicios (ofertas y adicionales) de Personal. Usa **MySQL** como base de datos.
 
-## Requirements
+### Requerimientos
 
-- Node.js 18+
-- MySQL 8 (or compatible)
+- **Node.js 18+**
+- **MySQL 8** (o compatible)
+- npm (incluido con Node)
 
-## Installation
+### Instalación
 
 ```bash
 cd api.recomendador
 npm install
 ```
 
-## Database
+### Base de datos
 
-1. Create the database and tables by running the SQL script:
+1. Crear la base y tablas ejecutando el script SQL:
 
 ```bash
-mysql -u root -p < src/infrastructure/persistence/scripts/schema.sql
+mysql -u root -p < src/infrastructure/repositories/scripts/schema.sql
 ```
 
-Or from the MySQL client:
+O bien, desde el cliente de MySQL:
 
 ```sql
-source full/path/api.recomendador/src/infrastructure/persistence/scripts/schema.sql
+source /ruta/completa/a/api.recomendador/src/infrastructure/repositories/scripts/schema.sql
 ```
 
-2. Configure environment variables. Copy `.env.example` to `.env` and adjust:
+2. Configurar variables de entorno. Copiar `.env.example` a `.env` (si existe) o crearlo manualmente:
 
 ```bash
-cp .env.example .env
+cp .env.example .env   # en Windows PowerShell: copy .env.example .env
 ```
 
-Edit `.env`:
+Contenido esperado de `.env` (valores de ejemplo):
 
-```
+```bash
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=root
-DB_PASSWORD=your_password
+DB_PASSWORD=tu_password
 DB_NAME=recomendador_personal
 PORT=3000
 ```
 
-## Running
+Si no se define `PORT`, la API levanta por defecto en **3000**.
 
-Build TypeScript:
+### Scripts npm
+
+- **`npm run build`**: compila TypeScript a JavaScript en `dist/`.
+- **`npm start`**: levanta la API usando `dist/adapters/app.js`.
+- **`npm run dev`**: compila en modo *watch* (útil junto con `nodemon` si se desea).
+- **`npm run dev:ts-node`**: ejecuta la API directamente desde TypeScript con `ts-node-dev` (hot reload).
+
+### Ejecución
+
+Compilar y ejecutar en modo producción:
 
 ```bash
 npm run build
-```
-
-Start the API:
-
-```bash
 npm start
 ```
 
-Development mode (compile on change):
-
-```bash
-npm run dev
-```
-
-Development with hot reload (ts-node-dev):
+Modo desarrollo con recarga en caliente:
 
 ```bash
 npm run dev:ts-node
 ```
 
-API is available at `http://localhost:3000`.
+La API quedará disponible en:
 
-## Endpoints
+- **URL base**: `http://localhost:3000`
+- **Base REST utilizada por el frontend**: `http://localhost:3000/api`
 
-| Method | Path | Description |
+### Endpoints principales
+
+| Método | Path | Descripción |
 |--------|------|-------------|
-| GET | `/api/health` | Health check |
-| GET | `/api/localidades` | List Argentine locations (selector) |
-| GET | `/api/ofertas?disponibilidad=CABA` | Offers by availability (CABA or Resto Pais) |
-| GET | `/api/adicionales?tipo=Tv` | Add-ons by type (Tv, Internet, Combo) |
+| GET | `/api/health` | Health check de la API |
+| GET | `/api/localidades` | Lista de localidades argentinas (para el selector del cliente) |
+| GET | `/api/ofertas?disponibilidad=CABA` | Ofertas por disponibilidad (`CABA` o `Resto Pais`) |
+| GET | `/api/ofertas?disponibilidad=Resto%20Pais` | Ofertas para el resto del país |
+| GET | `/api/adicionales?tipo=Tv` | Adicionales por tipo (`Tv`, `Internet`, `Combo`) |
 
-### Examples
+#### Ejemplos de llamadas
 
-- Locations: `GET http://localhost:3000/api/localidades`
-- CABA offers: `GET http://localhost:3000/api/ofertas?disponibilidad=CABA`
-- Rest of country offers: `GET http://localhost:3000/api/ofertas?disponibilidad=Resto%20Pais`
-- Tv add-ons: `GET http://localhost:3000/api/adicionales?tipo=Tv`
-- Combo add-ons: `GET http://localhost:3000/api/adicionales?tipo=Combo`
+- Localidades: `GET http://localhost:3000/api/localidades`
+- Ofertas CABA: `GET http://localhost:3000/api/ofertas?disponibilidad=CABA`
+- Ofertas resto país: `GET http://localhost:3000/api/ofertas?disponibilidad=Resto%20Pais`
+- Adicionales TV: `GET http://localhost:3000/api/adicionales?tipo=Tv`
+- Adicionales Combo (trae Tv + Internet): `GET http://localhost:3000/api/adicionales?tipo=Combo`
 
-## Structure (Clean Architecture)
+### Estructura (Clean Architecture)
 
-```
+```text
 src/
-├── domain/            # Entities and ports (interfaces)
-│   ├── entities/      # Product, Addon, Location
-│   └── ports/         # IProductRepository, IAddonRepository, ILocationsService
-├── application/       # Use cases
-│   ├── locations/     # getLocations (obtenerLocalidades)
-│   ├── offers/        # getOffersByLocation (obtenerOfertasPorLocalidad)
-│   └── addons/        # getAddonsByType (obtenerAdicionalesPorTipo)
-├── infrastructure/    # Implementations
-│   ├── persistence/mysql/  # Repositories and connection
-│   └── services/      # ArgentinaLocationsService (locations data)
-└── presentation/      # HTTP (Express)
+├── domain/                         # Entidades de negocio y puertos (interfaces)
+│   ├── entities/                   # Product, Addon, Location
+│   └── ports/                      # IProductRepository, IAddonRepository, ILocationsService
+├── application/                    # Casos de uso (lógica de aplicación)
+│   ├── locations/                  # obtenerLocalidades
+│   ├── offers/                     # obtenerOfertasPorLocalidad
+│   └── addons/                     # obtenerAdicionalesPorTipo
+├── infrastructure/                 # Implementaciones técnicas
+│   ├── repositories/mysql/         # Repositorios MySQL y pool de conexión
+│   ├── repositories/scripts/       # Script SQL schema.sql
+│   └── services/                   # ArgentinaLocationsService (datos de localidades)
+└── adapters/                       # Capa HTTP (Express)
     ├── controllers/
     ├── routes/
+    ├── dtos/
     ├── config/container.ts
-    └── app.ts
+    └── app.ts                      # Punto de entrada de la API
 ```
 
-## Code standards
+### Estándares de código
 
-- TypeScript strict mode. Interfaces for ports (repositories, services).
-- Function names in Spanish, camelCase (e.g. `obtenerOfertasPorLocalidad`).
-- Code documented with JSDoc on modules and relevant functions.
+- **TypeScript en modo estricto**, con interfaces para puertos (repositorios, servicios).
+- **Funciones de dominio y aplicación en español**, en `camelCase` (ej: `obtenerOfertasPorLocalidad`).
+- **Separación clara de capas** (domain / application / infrastructure / adapters) respetando la inversión de dependencias.
