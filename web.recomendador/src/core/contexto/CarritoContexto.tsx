@@ -43,7 +43,7 @@ export function CarritoProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<ItemCarrito[]>([])
 
   const valor = useMemo<CarritoContextoValor>(() => {
-    const primeraFactura = items.reduce((acum, item) => acum + item.precioFinal, 0)
+    const primeraFactura = items.reduce((acum, item) => acum + (Number(item.precioFinal)), 0)
     const ahorroTotal = items.reduce(
       (acum, item) => acum + (item.precioLista - item.precioFinal),
       0,
