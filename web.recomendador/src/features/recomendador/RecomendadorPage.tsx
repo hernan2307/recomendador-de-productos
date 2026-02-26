@@ -344,36 +344,31 @@ function TarjetaOferta({ oferta, adicionales }: TarjetaOfertaProps) {
           <span className="tarjeta-oferta-precio-valor">
             ${oferta.precioFinal.toLocaleString('es-AR')}
           </span>
-          <span className="tarjeta-oferta-precio-detalle">
-            Lista ${oferta.precioLista.toLocaleString('es-AR')} · Ahorro $
-            {ahorro.toLocaleString('es-AR')}
-          </span>
+        </div>
+        <div className="tarjeta-oferta-encabezado-info">
+          <div className="tarjeta-oferta-encabezado-item">
+            <span className="tarjeta-oferta-encabezado-item-label">Precio de lista</span>
+            <span className="tarjeta-oferta-encabezado-item-valor">
+              ${oferta.precioLista.toLocaleString('es-AR')}
+            </span>
+          </div>
+          <div className="tarjeta-oferta-encabezado-item">
+            <span className="tarjeta-oferta-encabezado-item-label">Oferta hogar</span>
+            <span className="tarjeta-oferta-encabezado-item-valor">
+              {oferta.promo ?? 'Sin promo'}
+            </span>
+          </div>
+          <div className="tarjeta-oferta-encabezado-item">
+            <span className="tarjeta-oferta-encabezado-item-label">Ahorro</span>
+            <span className="tarjeta-oferta-encabezado-item-valor">
+              ${ahorro.toLocaleString('es-AR')}
+            </span>
+          </div>
         </div>
       </div>
 
       {expandida && (
         <div className="tarjeta-oferta-cuerpo">
-          <div className="tarjeta-oferta-detalle-grid">
-            <div className="tarjeta-oferta-detalle-col">
-              <span className="tarjeta-oferta-detalle-col-titulo">Precio de lista</span>
-              <span className="tarjeta-oferta-detalle-valor-destacado">
-                ${oferta.precioLista.toLocaleString('es-AR')}
-              </span>
-            </div>
-            <div className="tarjeta-oferta-detalle-col">
-              <span className="tarjeta-oferta-detalle-col-titulo">Oferta hogar</span>
-              <span className="tarjeta-oferta-detalle-valor-destacado">
-                {oferta.promo ?? 'Sin promo'}
-              </span>
-            </div>
-            <div className="tarjeta-oferta-detalle-col">
-              <span className="tarjeta-oferta-detalle-col-titulo">Ahorro</span>
-              <span className="tarjeta-oferta-detalle-valor-destacado">
-                ${ahorro.toLocaleString('es-AR')}
-              </span>
-            </div>
-          </div>
-
           <div>
             <div className="tarjeta-oferta-adicionales-titulo">Adicionales compatibles</div>
             <div className="tarjeta-oferta-adicionales-lista">

@@ -202,6 +202,35 @@
   color: #e5e7eb;
 }
 
+.tarjeta-oferta-encabezado-info {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #1e293b;
+  margin-top: 0.25rem;
+}
+
+.tarjeta-oferta-encabezado-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.tarjeta-oferta-encabezado-item-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+}
+
+.tarjeta-oferta-encabezado-item-valor {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
 .tarjeta-oferta-logo {
   width: 110px;
   height: 60px;
@@ -250,11 +279,6 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: #22c55e;
-}
-
-.tarjeta-oferta-precio-detalle {
-  font-size: 0.7rem;
-  color: #9ca3af;
 }
 
 .tarjeta-oferta-cuerpo {
