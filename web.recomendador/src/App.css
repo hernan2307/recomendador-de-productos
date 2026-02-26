@@ -73,7 +73,8 @@
 .panel-cliente-botones {
   display: flex;
   gap: 0.5rem;
-  margin-top: 0.75rem;
+  margin-top: 0.75rem; 
+  justify-content: center;
 }
 
 .btn-primario,
