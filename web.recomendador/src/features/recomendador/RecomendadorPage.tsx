@@ -98,7 +98,7 @@ export function RecomendadorPage() {
     vaciarCarrito()
   }
 
-  const localidadSeleccionada = localidades.find((l) => l.id === localidadSeleccionadaId)
+  
 
   return (
     <div className="app-shell">
@@ -173,12 +173,7 @@ export function RecomendadorPage() {
           </button>
         </div>
 
-     {/*    {localidadSeleccionada != null && (
-          <button type="button" className="btn-link">
-            {localidadSeleccionada.nombre} ·{' '}
-            {localidadSeleccionada.disponibilidad === 'CABA' ? 'CABA' : 'Resto País'}
-          </button>
-        )} */}
+     
       </aside>
 
       <section className="contenido-ofertas">
