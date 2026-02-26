@@ -168,17 +168,17 @@ export function RecomendadorPage() {
           >
             Traer oferta
           </button>
-          <button type="button" className="btn-peligro" onClick={manejarBorrarTodo}>
+          <button type="button" className="btn-borrar" onClick={manejarBorrarTodo}>
             Borrar todo
           </button>
         </div>
 
-        {localidadSeleccionada != null && (
+     {/*    {localidadSeleccionada != null && (
           <button type="button" className="btn-link">
             {localidadSeleccionada.nombre} ·{' '}
             {localidadSeleccionada.disponibilidad === 'CABA' ? 'CABA' : 'Resto País'}
           </button>
-        )}
+        )} */}
       </aside>
 
       <section className="contenido-ofertas">
@@ -267,7 +267,7 @@ export function RecomendadorPage() {
         <div className="carrito-panel-titulo">
           <span>Carrito</span>
           <button type="button" className="btn-link" onClick={vaciarCarrito} disabled={!items.length}>
-            Vaciar
+            Vaciar carrito
           </button>
         </div>
 
@@ -394,7 +394,7 @@ function TarjetaOferta({ oferta, adicionales }: TarjetaOfertaProps) {
       )}
 
       <div className="tarjeta-oferta-acciones">
-        <button type="button" className="btn-link" onClick={() => setExpandida(!expandida)}>
+        <button type="button" className="btn-detalle" onClick={() => setExpandida(!expandida)}>
           {expandida ? 'Ocultar detalle' : 'Ver detalle'}
         </button>
         <button type="button" className="btn-primario" onClick={() => agregarOfertaAlCarrito(oferta)}>

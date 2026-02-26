@@ -78,7 +78,8 @@
 }
 
 .btn-primario,
-.btn-peligro,
+.btn-detalle,
+.btn-borrar,
 .btn-link {
   border-radius: 999px;
   border: none;
@@ -106,13 +107,28 @@
   box-shadow: 0 10px 18px rgba(16, 185, 129, 0.5);
 }
 
-.btn-peligro {
-  background: #b91c1c;
+.btn-borrar {
+  background: #dc2626;
   color: #fee2e2;
 }
 
-.btn-peligro:hover {
-  background: #dc2626;
+.btn-borrar:hover {
+  background: #b91c1c;
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(220, 38, 38, 0.5);
+}
+
+.btn-detalle {
+  background: transparent;
+  color: #4b5563;
+  padding-inline: 0;
+}
+
+.btn-detalle:hover {
+  color: #111827;
+  transform: none;
+  box-shadow: none;
 }
 
 .btn-link {
