@@ -1,6 +1,6 @@
 /**
- * Domain entity: Add-on.
- * Represents an add-on compatible with Tv or Internet product types.
+ * Entidad de dominio: Adicional.
+ * Representa un adicional compatible con tipos de producto Tv o Internet.
  */
 
 export type TipoCompatible = 'Tv' | 'Internet';

@@ -1,6 +1,6 @@
 /**
- * Use case: Get offers (products) by client location.
- * Filters by DISPONIBILIDAD column: CABA or Resto Pais.
+ * Caso de uso: Obtener ofertas (productos) por localidad del cliente.
+ * Filtra por columna DISPONIBILIDAD: CABA o Resto Pais.
  */
 
 import type { IProductRepository } from '../../domain/ports/IProductRepository';

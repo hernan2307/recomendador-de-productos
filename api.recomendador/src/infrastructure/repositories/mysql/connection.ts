@@ -1,6 +1,6 @@
 /**
- * MySQL connection pool for the API.
- * Environment variables are loaded from .env (dotenv).
+ * Pool de conexiones MySQL para la API.
+ * Las variables de entorno se cargan desde .env (dotenv).
  */
 
 import mysql from 'mysql2/promise';

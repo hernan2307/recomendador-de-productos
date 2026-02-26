@@ -1,6 +1,6 @@
 /**
- * Domain port (interface): Add-ons repository.
- * Implemented by infrastructure (e.g. MySQL).
+ * Puerto de dominio (interfaz): Repositorio de adicionales.
+ * Implementado por la infraestructura (ej. MySQL).
  */
 
 import type { Adicional } from '../entities/Addon';

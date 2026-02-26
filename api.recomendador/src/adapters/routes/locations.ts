@@ -1,5 +1,5 @@
 /**
- * HTTP routes: Locations
+ * Rutas HTTP: Localidades
  */
 
 import express from 'express';

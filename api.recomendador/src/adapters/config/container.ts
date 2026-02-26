@@ -1,6 +1,6 @@
 /**
- * Dependency container (composition).
- * Wires use cases to infrastructure implementations.
+ * Contenedor de dependencias (composición).
+ * Conecta los casos de uso con las implementaciones de infraestructura.
  */
 
 import { ProductRepositoryMySQL } from '../../infrastructure/repositories/mysql/ProductRepositoryMySQL';

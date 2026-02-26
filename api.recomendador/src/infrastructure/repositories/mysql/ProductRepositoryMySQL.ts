@@ -1,5 +1,5 @@
 /**
- * Product repository implementation over MySQL.
+ * Implementación del repositorio de productos sobre MySQL.
  */
 
 import { pool } from './connection';

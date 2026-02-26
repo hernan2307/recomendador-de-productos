@@ -1,6 +1,6 @@
 /**
- * Domain port (interface): Product repository.
- * Implemented by infrastructure (e.g. MySQL).
+ * Puerto de dominio (interfaz): Repositorio de productos.
+ * Implementado por la infraestructura (ej. MySQL).
  */
 
 import type { Producto } from '../entities/Product';

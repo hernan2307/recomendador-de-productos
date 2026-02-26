@@ -1,6 +1,6 @@
 /**
- * Locations service implementation: Argentina list.
- * Data source: static JSON (can be replaced by external API, e.g. GeoRef).
+ * Implementación del servicio de localidades: lista Argentina.
+ * Fuente de datos: JSON estático (puede reemplazarse por API externa, ej. GeoRef).
  */
 
 import { Localidad } from '../../domain/entities/Location';

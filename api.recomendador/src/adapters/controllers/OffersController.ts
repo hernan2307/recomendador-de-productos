@@ -1,6 +1,6 @@
 /**
- * HTTP controller: Offers (products).
- * Filters offers by availability according to client location.
+ * Controlador HTTP: Ofertas (productos).
+ * Filtra ofertas por disponibilidad según la localidad del cliente.
  */
 
 import type { Request, Response } from 'express';
@@ -10,7 +10,7 @@ import { toOffersDTO } from '../dtos/OfferDTO';
 
 /**
  * GET /api/ofertas?disponibilidad=CABA
- * Query: disponibilidad = 'CABA' | 'Resto Pais' (based on selected location).
+ * Query: disponibilidad = 'CABA' | 'Resto Pais' (según la localidad seleccionada).
  */
 export async function obtenerPorLocalidad(req: Request, res: Response): Promise<void> {
   try {

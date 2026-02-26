@@ -1,6 +1,6 @@
 /**
- * Use case: Get list of Argentine locations.
- * For the client location selector (data source to filter offers).
+ * Caso de uso: Obtener lista de localidades argentinas.
+ * Para el selector de localidad del cliente (fuente de datos para filtrar ofertas).
  */
 
 import type { ILocationsService } from '../../domain/ports/ILocationsService';

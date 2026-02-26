@@ -1,6 +1,6 @@
 /**
- * HTTP controller: Locations.
- * Exposes Argentine locations list for the frontend selector.
+ * Controlador HTTP: Localidades.
+ * Expone la lista de localidades argentinas para el selector del frontend.
  */
 
 import type { Request, Response } from 'express';
@@ -10,7 +10,7 @@ import { toLocationsDTO } from '../dtos/LocationDTO';
 
 /**
  * GET /api/localidades
- * List all locations (CABA + Rest of country / provinces).
+ * Lista todas las localidades (CABA + resto del país / provincias).
  */
 export async function listar(req: Request, res: Response): Promise<void> {
   try {

@@ -1,5 +1,5 @@
 /**
- * HTTP routes: Add-ons (by product type)
+ * Rutas HTTP: Adicionales (por tipo de producto)
  */
 
 import express from 'express';

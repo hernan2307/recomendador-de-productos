@@ -1,6 +1,6 @@
 /**
- * Domain entity: Product (service offer).
- * Represents a Tv, Internet or Combo offer by geographic availability.
+ * Entidad de dominio: Producto (oferta de servicio).
+ * Representa una oferta Tv, Internet o Combo por disponibilidad geográfica.
  */
 
 import type { Disponibilidad } from './Location';

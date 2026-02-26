@@ -1,7 +1,7 @@
 /**
- * Domain entity: Location.
- * Represents an Argentine location (for geographic filtering).
- * Product availability is mapped to "CABA" or "Resto Pais" based on location.
+ * Entidad de dominio: Localidad.
+ * Representa una localidad argentina (para filtrado geográfico).
+ * La disponibilidad del producto se mapea a "CABA" o "Resto Pais" según la localidad.
  */
 
 export type Disponibilidad = 'CABA' | 'Resto Pais';

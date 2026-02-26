@@ -1,5 +1,5 @@
 /**
- * HTTP routes: Offers (products by location)
+ * Rutas HTTP: Ofertas (productos por localidad)
  */
 
 import express from 'express';

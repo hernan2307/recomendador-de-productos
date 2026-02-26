@@ -1,6 +1,6 @@
 /**
- * API entry point - Personal Services Recommender.
- * Express + Clean Architecture (domain, application, infrastructure, presentation).
+ * Punto de entrada de la API - Recomendador de servicios personales.
+ * Express + Arquitectura limpia (dominio, aplicación, infraestructura, presentación).
  */
 
 import dotenv from 'dotenv';

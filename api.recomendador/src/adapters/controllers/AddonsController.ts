@@ -1,6 +1,6 @@
 /**
- * HTTP controller: Add-ons.
- * Lists add-ons compatible with product type (Tv, Internet, Combo).
+ * Controlador HTTP: Adicionales.
+ * Lista adicionales compatibles con el tipo de producto (Tv, Internet, Combo).
  */
 
 import type { Request, Response } from 'express';

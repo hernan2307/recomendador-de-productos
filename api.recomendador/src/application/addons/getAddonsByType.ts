@@ -1,6 +1,6 @@
 /**
- * Use case: Get add-ons compatible with product type.
- * Each offer shows only add-ons by TYPE: Tv or Internet (Combo can show both).
+ * Caso de uso: Obtener adicionales compatibles con el tipo de producto.
+ * Cada oferta muestra solo adicionales por TIPO: Tv o Internet (Combo puede mostrar ambos).
  */
 
 import type { IAddonRepository } from '../../domain/ports/IAddonRepository';
@@ -14,7 +14,7 @@ interface Deps {
 }
 
 /**
- * @param tipo - 'Tv' | 'Internet' | 'Combo' (for Combo both types can be returned)
+ * @param tipo - 'Tv' | 'Internet' | 'Combo' (para Combo se pueden devolver ambos tipos)
  */
 export async function obtenerAdicionalesPorTipo(
   { repositorioAdicionales }: Deps,

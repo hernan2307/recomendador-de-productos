@@ -1,5 +1,5 @@
 /**
- * Add-ons repository implementation over MySQL.
+ * Implementación del repositorio de adicionales sobre MySQL.
  */
 
 import { pool } from './connection';
