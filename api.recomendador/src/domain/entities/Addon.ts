@@ -3,8 +3,10 @@
  * Representa un adicional compatible con tipos de producto Tv o Internet.
  */
 
+/** Tipo de producto con el que es compatible el adicional (Tv o Internet). */
 export type TipoCompatible = 'Tv' | 'Internet';
 
+/** Datos planos para construir un Adicional (ej. fila de BD). */
 export interface AdicionalData {
   id: number;
   tipo_compatible: TipoCompatible;
@@ -15,6 +17,10 @@ export interface AdicionalData {
   precio_final: number;
 }
 
+/**
+ * Entidad de dominio: adicional compatible con Tv o Internet.
+ * Usada en casos de uso y repositorios.
+ */
 export class Adicional {
   id: number;
   tipo_compatible: TipoCompatible;
@@ -24,6 +30,7 @@ export class Adicional {
   id_promo: string | null;
   precio_final: number;
 
+  /** Crea un Adicional a partir de AdicionalData (snake_case). */
   constructor({
     id,
     tipo_compatible,

@@ -1,3 +1,8 @@
+/**
+ * Página principal del recomendador: datos del cliente, ofertas por localidad y carrito.
+ * Carga localidades al montar; al elegir localidad y "Traer oferta" carga ofertas y adicionales.
+ */
+
 import { useEffect, useMemo, useState } from 'react'
 import { useCarrito } from '../../core/contexto/CarritoContexto'
 import { obtenerAdicionalesPorTipo, obtenerLocalidades, obtenerOfertasPorDisponibilidad } from '../../core/servicios/apiCliente'
@@ -5,14 +10,17 @@ import type { Adicional } from '../../core/tipos/Adicional'
 import type { Localidad } from '../../core/tipos/Localidad'
 import type { Oferta, TipoProducto } from '../../core/tipos/Oferta'
 
+/** Pestañas de ofertas: Combos, Flow (Tv), Personal (Internet). */
 type Pestana = 'Combo' | 'Flow' | 'Personal'
 
+/** Mapa de adicionales por tipo de producto (Tv, Internet, Combo). */
 interface MapaAdicionales {
   Tv?: Adicional[]
   Internet?: Adicional[]
   Combo?: Adicional[]
 }
 
+/** Componente de la página del recomendador: selector de cliente, listado de ofertas y carrito. */
 export function RecomendadorPage() {
   const [segmento, setSegmento] = useState<'Individuo' | 'Soho/SMB'>('Individuo')
   const [localidades, setLocalidades] = useState<Localidad[]>([])
@@ -308,11 +316,13 @@ export function RecomendadorPage() {
   )
 }
 
+/** Props de la tarjeta de una oferta: la oferta y los adicionales compatibles. */
 interface TarjetaOfertaProps {
   oferta: Oferta
   adicionales: Adicional[]
 }
 
+/** Tarjeta de una oferta con precio, ahorro, detalle expandible y botones para agregar al carrito. */
 function TarjetaOferta({ oferta, adicionales }: TarjetaOfertaProps) {
   const [expandida, setExpandida] = useState(false)
   const { agregarOfertaAlCarrito, agregarAdicionalAlCarrito } = useCarrito()

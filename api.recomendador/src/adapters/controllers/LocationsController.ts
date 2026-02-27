@@ -10,7 +10,10 @@ import { toLocationsDTO } from '../dtos/LocationDTO';
 
 /**
  * GET /api/localidades
- * Lista todas las localidades (CABA + resto del país / provincias).
+ * Lista todas las localidades argentinas para el selector (CABA y resto del país).
+ *
+ * @param req - Request de Express (sin query requerida).
+ * @param res - Response; envía JSON con array de LocationDTO o 500 en error.
  */
 export async function listar(req: Request, res: Response): Promise<void> {
   try {

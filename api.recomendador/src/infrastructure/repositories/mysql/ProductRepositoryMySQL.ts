@@ -8,7 +8,12 @@ import type { ProductoData } from '../../../domain/entities/Product';
 import type { IProductRepository } from '../../../domain/ports/IProductRepository';
 import type { Disponibilidad } from '../../../domain/entities/Location';
 
+/** Implementación de IProductRepository usando MySQL (tabla productos). */
 export const ProductRepositoryMySQL: IProductRepository = {
+  /**
+   * Consulta productos por disponibilidad (CABA o Resto Pais).
+   * Orden: tipo, nombre.
+   */
   async obtenerPorDisponibilidad(
     disponibilidad: Disponibilidad
   ): Promise<Producto[]> {

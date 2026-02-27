@@ -5,8 +5,10 @@
 
 import type { Disponibilidad } from './Location';
 
+/** Tipo de producto: Tv, Internet o Combo. */
 export type TipoProducto = 'Tv' | 'Internet' | 'Combo';
 
+/** Datos planos para construir un Producto (ej. fila de BD). */
 export interface ProductoData {
   id: number;
   disponibilidad: Disponibilidad;
@@ -18,6 +20,10 @@ export interface ProductoData {
   precio_final: number;
 }
 
+/**
+ * Entidad de dominio: oferta de servicio (Tv, Internet o Combo).
+ * Inmutable una vez construida; usada en casos de uso y repositorios.
+ */
 export class Producto {
   id: number;
   disponibilidad: Disponibilidad;
@@ -28,6 +34,7 @@ export class Producto {
   id_promo: string | null;
   precio_final: number;
 
+  /** Crea un Producto a partir de ProductoData (snake_case). */
   constructor({
     id,
     disponibilidad,

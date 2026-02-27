@@ -3,6 +3,7 @@
  * Contrato de la API; independiente del modelo de dominio.
  */
 
+/** Contrato de respuesta de la API para un adicional (camelCase). */
 export interface AddonDTO {
   id: number;
   tipoCompatible: string;
@@ -13,6 +14,11 @@ export interface AddonDTO {
   precioFinal: number;
 }
 
+/**
+ * Convierte una entidad adicional de dominio a AddonDTO (snake_case → camelCase).
+ * @param adicional - Objeto con campos en snake_case.
+ * @returns DTO para la respuesta HTTP.
+ */
 export function toAddonDTO(adicional: { id: number; tipo_compatible: string; nombre: string; precio_lista: number; promo: string | null; id_promo: string | null; precio_final: number }): AddonDTO {
   return {
     id: adicional.id,
@@ -25,6 +31,11 @@ export function toAddonDTO(adicional: { id: number; tipo_compatible: string; nom
   };
 }
 
+/**
+ * Convierte un array de adicionales a array de AddonDTO.
+ * @param adicionales - Lista de adicionales de dominio.
+ * @returns Array de DTOs para la respuesta HTTP.
+ */
 export function toAddonsDTO(adicionales: Array<{ id: number; tipo_compatible: string; nombre: string; precio_lista: number; promo: string | null; id_promo: string | null; precio_final: number }>): AddonDTO[] {
   return adicionales.map(toAddonDTO);
 }

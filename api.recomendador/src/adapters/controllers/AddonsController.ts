@@ -12,7 +12,10 @@ const TIPOS_VALIDOS: TipoParam[] = ['Tv', 'Internet', 'Combo'];
 
 /**
  * GET /api/adicionales?tipo=Tv
- * Query: tipo = 'Tv' | 'Internet' | 'Combo'
+ * Lista adicionales compatibles con el tipo de producto. Query: tipo = 'Tv' | 'Internet' | 'Combo'.
+ *
+ * @param req - Request de Express; se usa req.query.tipo.
+ * @param res - Response; envía JSON con array de AddonDTO o 500 en error.
  */
 export async function obtenerPorTipo(req: Request, res: Response): Promise<void> {
   try {

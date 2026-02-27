@@ -1,9 +1,16 @@
+/**
+ * Contexto de React para el carrito de cotización.
+ * Expone ítems, totales (primera factura, ahorro) y acciones (agregar, quitar, vaciar).
+ */
+
 import { createContext, useContext, useMemo, useState, type ReactNode } from 'react'
 import type { Adicional } from '../tipos/Adicional'
 import type { Oferta } from '../tipos/Oferta'
 
+/** Discriminante de ítem: oferta o adicional. */
 export type TipoItemCarrito = 'OFERTA' | 'ADICIONAL'
 
+/** Campos comunes de un ítem en el carrito. */
 export interface ItemCarritoBase {
   id: string
   tipo: TipoItemCarrito
@@ -13,11 +20,13 @@ export interface ItemCarritoBase {
   precioFinal: number
 }
 
+/** Ítem que representa una oferta agregada al carrito. */
 export interface ItemCarritoOferta extends ItemCarritoBase {
   tipo: 'OFERTA'
   ofertaId: number
 }
 
+/** Ítem que representa un adicional agregado al carrito (opcionalmente asociado a una oferta). */
 export interface ItemCarritoAdicional extends ItemCarritoBase {
   tipo: 'ADICIONAL'
   adicionalId: number
@@ -26,6 +35,7 @@ export interface ItemCarritoAdicional extends ItemCarritoBase {
 
 export type ItemCarrito = ItemCarritoOferta | ItemCarritoAdicional
 
+/** Valor del contexto: estado del carrito y funciones para modificarlo. */
 export interface CarritoContextoValor {
   items: ItemCarrito[]
   primeraFactura: number
@@ -39,6 +49,7 @@ export interface CarritoContextoValor {
 
 const CarritoContexto = createContext<CarritoContextoValor | undefined>(undefined)
 
+/** Proveedor del contexto de carrito; debe envolver la parte de la app que use useCarrito. */
 export function CarritoProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<ItemCarrito[]>([])
 
@@ -105,6 +116,11 @@ export function CarritoProvider({ children }: { children: ReactNode }) {
   return <CarritoContexto.Provider value={valor}>{children}</CarritoContexto.Provider>
 }
 
+/**
+ * Hook para acceder al carrito. Debe usarse dentro de CarritoProvider.
+ * @returns Valor del contexto (items, totales, acciones).
+ * @throws Error si se usa fuera de CarritoProvider.
+ */
 export function useCarrito(): CarritoContextoValor {
   const ctx = useContext(CarritoContexto)
   if (ctx == null) {

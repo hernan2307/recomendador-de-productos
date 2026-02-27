@@ -8,6 +8,10 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+/**
+ * Pool de conexiones MySQL compartido por los repositorios.
+ * Configuración vía .env: DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME.
+ */
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   port: Number(process.env.DB_PORT) || 3306,
