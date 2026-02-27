@@ -133,12 +133,12 @@
 
 .btn-link {
   background: transparent;
-  color: #4b5563;
+  color: #ff0000;
   padding-inline: 0;
 }
 
 .btn-link:hover {
-  color: #111827;
+  color: #960000;
   transform: none;
   box-shadow: none;
 }
